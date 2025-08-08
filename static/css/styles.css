@@ -32,6 +32,14 @@ body {
     flex-direction: column;
 }
 
+/* Improve dark-mode readability for commonly muted elements */
+[data-theme="dark"] .text-muted { color: #b3bdc9 !important; }
+[data-theme="dark"] .small, [data-theme="dark"] small { color: #c3ccd8; }
+[data-theme="dark"] .published { color: #b3bdc9; }
+[data-theme="dark"] .card p, [data-theme="dark"] .card li { color: #d8dce3; }
+[data-theme="dark"] .sidebar p, [data-theme="dark"] .sidebar li, [data-theme="dark"] .sidebar h6 { color: var(--text); }
+[data-theme="dark"] .sidebar .text-muted { color: #b3bdc9 !important; }
+
 /* Navbar gradient background */
 .navbar.bg-gradient {
     background: linear-gradient(90deg, var(--accent), #0d6efd);
@@ -293,6 +301,7 @@ a.stretched-link {
     width: 100%; padding: 0.65rem 0.9rem 0.65rem 2.2rem; border-radius: 999px; border: 1px solid rgba(0,0,0,0.12);
     background: var(--card); color: var(--text);
 }
+.search-hero__input::placeholder { color: var(--muted); opacity: 1; }
 .search-hero__input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(22,163,74,0.18); }
 .search-hero__btn { border-radius: 999px; padding: 0.55rem 1.2rem; font-weight: 700; }
 .search-hero__chips { margin-top: 0.5rem; display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap; }

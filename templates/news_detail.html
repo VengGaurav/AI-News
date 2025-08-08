@@ -31,7 +31,7 @@
     <article class="card shadow-sm news-card p-3 p-md-4">
         <header class="mb-3">
             <h1 class="h3 card-title mb-2">{{ title }}</h1>
-            <div class="text-muted small d-flex gap-3 flex-wrap">
+            <div class="small d-flex gap-3 flex-wrap text-muted">
                 <span class="published" data-published="{{ published_at }}"><i class="far fa-clock me-1"></i><span class="published-text">{{ published_at[:10] if published_at }}</span></span>
                 <span><i class="fas fa-newspaper me-1"></i>{{ source }}</span>
             </div>
