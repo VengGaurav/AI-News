@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkfGWlVZ6Z8lZPp1G4W0kQwS3S5w4VvYqvQ+V9WvZP5Q3cXol5rXf3l3Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-gradient shadow sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold fs-3" href="{{ url_for('home') }}">&#127760; AI News</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <div class="ms-auto">
+                <button id="themeToggle" class="btn btn-outline-light rounded-pill" type="button" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+</nav>
+
+<main class="container py-4">
+    <article class="card shadow-sm news-card p-3 p-md-4">
+        <header class="mb-3">
+            <h1 class="h3 card-title mb-2">{{ title }}</h1>
+            <div class="text-muted small d-flex gap-3 flex-wrap">
+                <span class="published" data-published="{{ published_at }}"><i class="far fa-clock me-1"></i><span class="published-text">{{ published_at[:10] if published_at }}</span></span>
+                <span><i class="fas fa-newspaper me-1"></i>{{ source }}</span>
+            </div>
+        </header>
+        <section class="mb-3">
+            <p class="card-text">{{ content or description or 'Full content not available from source.' }}</p>
+        </section>
+        <div class="d-flex gap-2">
+            <a href="{{ url }}" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt me-2"></i>Read Original Source</a>
+            <a href="{{ url_for('home') }}" class="btn btn-outline-secondary"><i class="fas fa-home me-2"></i>Back to Home</a>
+        </div>
+    </article>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

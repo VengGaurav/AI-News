@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ai-news-app
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers=2 --threads=4 --timeout=120
+    envVars:
+      - key: NEWSAPI_KEY
+        sync: false
+
