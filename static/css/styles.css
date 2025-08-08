@@ -103,6 +103,12 @@ body {
     margin-bottom: 0.5rem;
 }
 
+/* Ensure readable body text on cards in both themes */
+.news-card .card-text { color: var(--text); line-height: 1.45; opacity: 0.95; }
+.news-card .small { color: var(--muted); }
+[data-theme="dark"] .news-card .card-text { color: #d8dce3; opacity: 1; }
+[data-theme="dark"] .news-card .small { color: #b3bdc9; }
+
 /* Buttons */
 .btn-primary {
     background-color: var(--accent);
@@ -195,6 +201,22 @@ a.stretched-link {
 [data-theme="dark"] .navbar .btn-outline-light.active {
     color: #0b1220;
 }
+
+/* Dark mode styles for the navbar toggler and pills */
+[data-theme="dark"] .navbar .btn-outline-light {
+    background: #0f172a;
+    color: #e6e8eb;
+    border-color: rgba(255,255,255,0.15);
+}
+[data-theme="dark"] .navbar .btn-outline-light:hover,
+[data-theme="dark"] .navbar .btn-outline-light.active {
+    background: #1f2937;
+    color: #22c55e; /* accent tint when active */
+}
+.navbar .navbar-toggler { border-color: rgba(0,0,0,0.2); }
+[data-theme="dark"] .navbar .navbar-toggler { border-color: rgba(255,255,255,0.3); }
+.navbar .navbar-toggler .navbar-toggler-icon { filter: invert(0); }
+[data-theme="dark"] .navbar .navbar-toggler .navbar-toggler-icon { filter: invert(1); }
 
 /* Market ticker */
 .market-ticker {

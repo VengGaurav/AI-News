@@ -121,4 +121,27 @@ document.addEventListener('DOMContentLoaded', () => {
             input.value = q;
         });
     }
+
+    // Collapse navbar on scroll and on link click (mobile UX)
+    const navbarCollapse = document.getElementById('navbarContent');
+    const hideCollapse = () => {
+        if (!navbarCollapse) return;
+        if (navbarCollapse.classList.contains('show') && window.bootstrap && window.bootstrap.Collapse) {
+            const c = new window.bootstrap.Collapse(navbarCollapse, { toggle: false });
+            c.hide();
+        }
+    };
+    // Close when scrolling or resizing/orientation change
+    window.addEventListener('scroll', hideCollapse, { passive: true });
+    window.addEventListener('resize', hideCollapse);
+    window.addEventListener('orientationchange', hideCollapse);
+    // Close when clicking any nav item inside the collapse
+    if (navbarCollapse) {
+        navbarCollapse.addEventListener('click', (e) => {
+            const target = e.target;
+            if (target.closest('.nav-item') || target.closest('a') || target.closest('button')) {
+                hideCollapse();
+            }
+        });
+    }
 });
